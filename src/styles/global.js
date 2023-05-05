@@ -9,7 +9,12 @@ export default createGlobalStyle`
 
   body {
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_BODY};
-    -webkit-font-smoothing: antialiased;    
+    -webkit-font-smoothing: antialiased; 
+    font-family: 'Poppins', sans-serif;
+  }
+
+  input {
+    font-family: 'Roboto', sans-serif;
   }
 
   a {
