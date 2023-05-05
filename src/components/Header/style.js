@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-  background-color: ${({ theme }) => theme.COLORS.RED};
+  height: 100px;
+  background-color: ${({ theme }) => theme.COLORS.HEADER};
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `

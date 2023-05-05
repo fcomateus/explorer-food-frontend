@@ -1,9 +1,13 @@
 import { Container } from './style'
+import InputText from '../InputText'
 
 export function Header() {
   return (
     <Container>
-      Oi
+      <InputText
+        placeholder="Busque por pratos ou ingredientes"
+      >
+      </InputText>
     </Container>
   )
 }
