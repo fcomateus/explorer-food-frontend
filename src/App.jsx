@@ -1,11 +1,10 @@
-import { Header } from './components/Header'
+import Header from './components/Header'
+import Signup from './pages/Signup'
 
 function App() {
 
   return (
-        <Header>
-          Oi
-        </Header>
+        <Header/>
   )
 }
 
