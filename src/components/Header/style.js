@@ -10,11 +10,12 @@ export const Container = styled.header`
   justify-content: space-between;
   padding: 0px 10px;
 
+
   & svg {
     font-size: 24px;
   }
 
-  & div:has(input)  {
+  #search {
     display: none;
   }
 
@@ -50,8 +51,17 @@ export const Container = styled.header`
     border-radius: 999px;
   }
 
-  @media(min-width: 630px) {
-   & div:has(input) {
+  #my-orders {
+    display: none;
+  }
+
+  @media(min-width: 768px) {
+  & {
+    gap: 32px;
+    padding: 0 30px;
+  }
+
+  #search {
     display: block;
     width: 300px;
    }
@@ -64,9 +74,36 @@ export const Container = styled.header`
     display: none;
    }
 
+   #my-orders {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    background-color: ${({ theme }) => theme.COLORS.RED};
+    border: none;
+    border-radius: 5px;
+
+    font-family: 'Poppins', sans-serif;
+    padding: 12px 46.5px;
+
+   }
+
    #exit {
     display: block;
    }
 
+  }
+
+  @media(min-width: 1000px) {
+    #search {
+      width: 500px;
+    }
+  }
+
+  @media(min-width: 1500px) {
+    & {
+      padding: 0 300px;
+    }
   }
 `

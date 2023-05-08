@@ -1,8 +1,10 @@
 import { Container } from './style';
 
-export default function InputText({ placeholder }) {
+export default function InputText({ placeholder, ...rest }) {
   return (
-    <Container>
+    <Container
+    {...rest}
+    >
       <input 
         type="text"
         placeholder={placeholder}
