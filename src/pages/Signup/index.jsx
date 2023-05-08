@@ -1,4 +1,5 @@
 import { Container } from './style';
+import Button from '../../components/Button'
 import InputText from '../../components/InputText' 
 
 export default function Signup() {
@@ -15,9 +16,33 @@ export default function Signup() {
       </div>
 
       <div className="input-wrapper">
-        <label htmlFor="email">Email</label>
-        <InputText id="email"/>
+        <label htmlFor="name">Seu nome</label>
+        <InputText 
+          id="name"
+          placeholder="Exemplo: Maria da Silva"  
+        />
       </div>
+
+      <div className="input-wrapper">
+        <label htmlFor="email">Email</label>
+        <InputText 
+          id="email"
+          placeholder="Exemplo: exemplo@exemplo.com.br"  
+        />
+      </div>
+
+      <div className="input-wrapper">
+        <label htmlFor="password">Senha</label>
+        <InputText 
+          id="email"
+          min='6'
+          placeholder="No mínimo 6 caracteres"  
+        />
+      </div>
+
+      <Button
+        color='#750310'
+      />
     
     </Container>
 

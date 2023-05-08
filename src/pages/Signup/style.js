@@ -14,11 +14,12 @@ export const Container = styled.div`
 
     font-weight: bold;
     font-size: 22px;
-    margin: 50px 0 70px;
+    margin: 50px 0 40px;
   }
 
   .input-wrapper {
     width: 280px;
     padding: 10px;
+    margin-top: 32px;
   }
 `
