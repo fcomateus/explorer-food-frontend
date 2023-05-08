@@ -13,6 +13,10 @@ export default createGlobalStyle`
     font-family: 'Poppins', sans-serif;
   }
 
+  h1, h2 {
+    font-weight: 500;
+  }
+
   input {
     font-family: 'Roboto', sans-serif;
   }
