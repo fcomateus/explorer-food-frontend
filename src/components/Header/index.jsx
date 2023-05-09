@@ -1,16 +1,59 @@
 import { Container } from './style'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { RxExit } from 'react-icons/rx'
+import { RxCross1 } from 'react-icons/rx'
 import { InputText } from '../InputText'
 import { Button } from '../Button'
+import { useState } from 'react'
 
 
 export function Header() {
+  const [menuOpened, setMenuOpened] = useState(false)
+
+  function handleClickMenu(event) {
+    setMenuOpened(prevState => !prevState)
+  }
+
+
   return (
     <Container>
-      <div id='menu'>
-        <AiOutlineMenu/>
+      <div className={menuOpened ? 'opened-menu': 'closed-menu'}>
+        <header id='menu-header'>
+          <button
+            id='close-menu-button'
+            onClick={handleClickMenu}
+          >
+            <RxCross1/>
+          </button>
+
+          Menu
+        </header>
+
+        <div className="menu-body">
+          <InputText
+            id="menu-search"
+            placeholder="Busque por pratos ou ingredientes"
+          />
+
+          <div id="menu-search-results">
+          </div>
+
+          <div id='exit-wrapper'>
+            <button id="menu-exit-app">
+              Sair
+            </button>
+          </div>
+
+        </div>
+
       </div>
+
+      <button 
+        id='open-menu-button'
+        onClick={handleClickMenu}  
+      >
+        <AiOutlineMenu/>
+      </button>
 
       <div id='header'>
         <svg width="26" height="31" viewBox="0 0 26 31" fill="none" xmlns="http://www.w3.org/2000/svg">

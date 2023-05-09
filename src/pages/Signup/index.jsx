@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { InputText } from '../../components/InputText' 
 
-export function Signup() {
+export function SignUp() {
   return(
     <Container>
       <div id='header'>

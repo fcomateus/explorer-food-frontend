@@ -17,7 +17,7 @@ export const Container = styled.div`
 
   .input-wrapper {
     width: 280px;
-    padding: 10px;
+    padding-inline: 10px;
     margin-top: 32px;
   }
 
@@ -42,7 +42,7 @@ export const Container = styled.div`
 
   @media(min-width: ${SIZES.laptopL}) {
     & {
-      padding: 90px 200px;
+      padding: 130px 200px 0;
       flex-direction: row;
       justify-content: space-between;
     }

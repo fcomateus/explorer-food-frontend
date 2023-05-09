@@ -15,6 +15,70 @@ export const Container = styled.header`
   & svg {
     font-size: 24px;
   }
+  
+  .closed-menu {
+    display: none;
+  }
+
+  .opened-menu {
+    display: block;
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+
+    background: ${({ theme }) => theme.COLORS.BACKGROUND_BODY};
+
+    width: 100vw;
+    height: 100vh;
+    
+  }
+
+  .opened-menu #menu-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    height: 100px;
+    padding: 10px;
+
+    background-color: ${({ theme }) => theme.COLORS.HEADER};
+    
+    font-size: 20px;
+  }
+
+  .opened-menu .menu-body {
+    margin: 32px 28px;
+  }
+
+  #open-menu-button {
+    background: none;
+    border: none;
+  }
+
+  .opened-menu #close-menu-button {
+    background: none;
+    border: none;
+  }
+
+  .opened-menu #menu-search-results {
+    margin: 16px 0;
+    min-height: 36px;
+    max-height: 400px;
+
+    overflow-y: scroll;
+  }
+
+  .opened-menu #exit-wrapper {
+    border-bottom: 1px solid ${({ theme }) => theme.COLORS.TAG_EXIBITION};
+  }
+
+  .opened-menu #menu-exit-app {
+    border: none;
+    background: none;
+    font-size: 24px;
+  }
+
 
   #search {
     display: none;
@@ -67,7 +131,7 @@ export const Container = styled.header`
     width: 300px;
    }
 
-   #menu {
+   #open-menu-button {
     display: none;
    }
 
