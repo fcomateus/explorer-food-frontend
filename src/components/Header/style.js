@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { SIZES } from "../../utils/sizes";
 
 export const Container = styled.header`
   height: 100px;
@@ -55,7 +56,7 @@ export const Container = styled.header`
     display: none;
   }
 
-  @media(min-width: 768px) {
+  @media(min-width: ${SIZES.tablet}) {
   & {
     gap: 32px;
     padding: 0 30px;
@@ -95,13 +96,13 @@ export const Container = styled.header`
 
   }
 
-  @media(min-width: 1000px) {
+  @media(min-width: ${SIZES.laptop}) {
     #search {
       width: 500px;
     }
   }
 
-  @media(min-width: 1500px) {
+  @media(min-width: ${SIZES.desktop}) {
     & {
       padding: 0 300px;
     }

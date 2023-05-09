@@ -1,8 +1,9 @@
 import { Container } from './style';
-import Button from '../../components/Button'
-import InputText from '../../components/InputText' 
+import { Link } from 'react-router-dom'
+import { Button } from '../../components/Button'
+import { InputText } from '../../components/InputText' 
 
-export default function Signup() {
+export function Signup() {
   return(
     <Container>
       <div id='header'>
@@ -15,37 +16,47 @@ export default function Signup() {
         </div>
       </div>
 
-      <div className="input-wrapper">
-        <label htmlFor="name">Seu nome</label>
-        <InputText 
-          id="name"
-          placeholder="Exemplo: Maria da Silva"  
-        />
-      </div>
+      <form className='flex-column'>
+        <h2>Crie sua conta</h2>
 
-      <div className="input-wrapper">
-        <label htmlFor="email">Email</label>
-        <InputText 
-          id="email"
-          placeholder="Exemplo: exemplo@exemplo.com.br"  
-        />
-      </div>
+        <div className="input-wrapper">
+          <label htmlFor="name">Seu nome</label>
+          <InputText 
+            id="name"
+            placeholder="Exemplo: Maria da Silva"  
+          />
+        </div>
 
-      <div className="input-wrapper">
-        <label htmlFor="password">Senha</label>
-        <InputText 
-          id="email"
-          min='6'
-          placeholder="No mínimo 6 caracteres"  
-        />
-      </div>
+        <div className="input-wrapper">
+          <label htmlFor="email">Email</label>
+          <InputText 
+            id="email"
+            placeholder="Exemplo: exemplo@exemplo.com.br"  
+          />
+        </div>
 
-      <Button
-        color='#750310'
-      />
+        <div className="input-wrapper">
+          <label htmlFor="password">Senha</label>
+          <InputText 
+            id="email"
+            min='6'
+            placeholder="No mínimo 6 caracteres"  
+          />
+        </div>
+
+        <div className="input-wrapper">
+          <Button
+            color='#750310'
+            text="Criar conta"
+            />
+        </div>
+
+        <div id='link-to-signin'>
+          <Link to='/'>Já tenho uma conta</Link>
+        </div>
+      </form>
+      
     
     </Container>
-
-
   )
 }

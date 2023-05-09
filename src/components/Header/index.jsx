@@ -1,11 +1,11 @@
 import { Container } from './style'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { RxExit } from 'react-icons/rx'
-import InputText from '../InputText'
-import Button from '../Button'
+import { InputText } from '../InputText'
+import { Button } from '../Button'
 
 
-export default function Header() {
+export function Header() {
   return (
     <Container>
       <div id='menu'>
