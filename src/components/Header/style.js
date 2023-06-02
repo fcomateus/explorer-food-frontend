@@ -51,6 +51,11 @@ export const Container = styled.header`
     margin: 32px 28px;
   }
 
+  /* adicionar animação de abertura de menu */
+  #menu {
+
+  }
+
   #open-menu-button {
     background: none;
     border: none;
@@ -61,10 +66,25 @@ export const Container = styled.header`
     border: none;
   }
 
+  .menu-dish-image,
+  .menu-dish-image img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .exibition-dish-menu {
+    display: flex;
+    gap: 10px;
+    margin: 16px 0;
+  }
+
   .opened-menu #menu-search-results {
     margin: 16px 0;
+    padding: 8px;
+    border-radius: 5px;
     min-height: 36px;
     max-height: 400px;
+    background-color: ${({ theme }) => theme.COLORS.SEARCH};
 
     overflow-y: scroll;
   }

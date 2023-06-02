@@ -5,10 +5,31 @@ import { RxCross1 } from 'react-icons/rx'
 import { InputText } from '../InputText'
 import { Button } from '../Button'
 import { useState } from 'react'
-
+import { Link } from 'react-router-dom'
 
 export function Header() {
   const [menuOpened, setMenuOpened] = useState(false)
+
+  const mock = [
+    {
+      id: 1,
+      name: 'Salada Ravanello',
+      price: 49.97,
+      image: 'src/assets/ravanello.png'
+    },
+    {
+      id: 2,
+      name: 'Spaghetti Gambe',
+      price: 79.97,
+      image: 'src/assets/gambe.png'
+    },
+    {
+      id: 3,
+      name: 'Prugna Pie',
+      price: 79.97,
+      image: 'src/assets/prune.png'
+    },
+  ]
 
   function handleClickMenu(event) {
     setMenuOpened(prevState => !prevState)
@@ -17,7 +38,7 @@ export function Header() {
 
   return (
     <Container>
-      <div className={menuOpened ? 'opened-menu': 'closed-menu'}>
+      <div id='menu' className={menuOpened ? 'opened-menu': 'closed-menu'}>
         <header id='menu-header'>
           <button
             id='close-menu-button'
@@ -36,6 +57,27 @@ export function Header() {
           />
 
           <div id="menu-search-results">
+            {
+              mock && mock.map(item => {
+                const urlPath = item.name.toLowerCase().split(" ").join("-")
+
+                return (
+                  <Link to={urlPath} className='exibition-dish-menu' key={String(item.id)}>
+                    <div className='menu-dish-image'>
+                      <img src={item.image} alt="Imagem do prato"/>
+                    </div>
+
+                    <div>
+                      <h4>{item.name}</h4>
+                      <p>{item.price}</p>
+                    </div>
+                  </Link>
+                )
+              })
+
+            }
+
+            
           </div>
 
           <div id='exit-wrapper'>
