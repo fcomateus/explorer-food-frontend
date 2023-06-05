@@ -13,7 +13,6 @@ import image4 from '../../assets/molla.png'
 export function Slider({items}) {
     const carousel = useRef();
     const [width, setWidth] = useState(0);
-    console.log(items);
     const [dishes, setDishes] = useState(items)
 
     function handleAdd(dish) {

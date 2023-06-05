@@ -9,6 +9,8 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+
+        border: 1px solid red;
     }
 
     .carousel {
@@ -75,4 +77,13 @@ export const Container = styled.div`
         border-radius: 5px;
         font-weight: 500;
     }
+
+    @media(min-width: 648px) {
+        & {
+            margin-left: 0;
+            max-width: 100%;
+        }
+    }
+
+    
 `
