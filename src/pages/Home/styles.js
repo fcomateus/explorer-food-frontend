@@ -31,6 +31,14 @@ export const Container = styled.div`
         font-weight: 500;
     }
 
+    #content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        margin-inline: 24px;
+    }
+
     @media(min-width: ${SIZES.mobileS}) {
         #panel p {
             display: none;

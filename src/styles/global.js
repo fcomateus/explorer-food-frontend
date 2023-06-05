@@ -15,7 +15,7 @@ export default createGlobalStyle`
     font-family: 'Poppins', sans-serif;
   }
 
-  h1, h2 {
+  h1, h2, h4 {
     font-weight: 500;
   }
 
@@ -25,6 +25,11 @@ export default createGlobalStyle`
 
   a {
     text-decoration: none;
+  }
+
+  button {
+    background: none;
+    border: none;
   }
 
   button, a {
