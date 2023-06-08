@@ -9,6 +9,7 @@ export default {
     TAG_INPUT: '#76797B',
     RED: '#750310',
     LIGHT_BLUE: '#82F3FF',
-    WHITE: '#E1E1E6'
+    WHITE: '#E1E1E6',
+    GRAY: '#4D585E'
   }
 }

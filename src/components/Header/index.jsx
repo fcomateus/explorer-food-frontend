@@ -33,6 +33,11 @@ export function Header() {
 
   function handleClickMenu(event) {
     setMenuOpened(prevState => !prevState)
+    if(menuOpened) {
+      //sumir elementos
+    } else {
+      //aparecer elementos
+    }
   }
 
 

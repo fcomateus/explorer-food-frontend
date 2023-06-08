@@ -1,6 +1,7 @@
 import { Container } from './styles'
 import { Header } from '../../components/Header'
 import { Slider } from '../../components/Slider'
+import { Footer } from '../../components/Footer'
 import { useEffect, useState } from 'react'
 
 import homeImgMobile from '../../assets/home-image-mobile.png'
@@ -71,22 +72,31 @@ export function Home() {
       </div>
 
       <main id='content'>
-        <h4>Refeições</h4>
-        <Slider
-          items={mock}
-        />
 
-        <h4>Pratos principais</h4>
-        <Slider
-          items={mock}
-        />
+        <section className='food-exhibition'>
+          <h4>Refeições</h4>
+          <Slider
+            items={mock}
+          />
+        </section>
 
-        <h4>Pratos principais</h4>
-        <Slider
-          items={mock}
-        />
+        <section className='food-exhibition'>
+          <h4>Pratos principais</h4>
+          <Slider
+            items={mock}
+          />
+        </section>
+
+        <section className='food-exhibition'>
+          <h4>Pratos principais</h4>
+          <Slider
+            items={mock}
+          />
+        </section>
 
       </main>
+
+      <Footer/>
 
     </Container>
   )

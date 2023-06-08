@@ -39,6 +39,14 @@ export const Container = styled.div`
         margin-inline: 24px;
     }
 
+    .food-exhibition {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+
+        margin-bottom: 24px;
+    }
+
     @media(min-width: ${SIZES.mobileS}) {
         #panel p {
             display: none;

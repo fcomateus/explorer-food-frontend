@@ -5,11 +5,6 @@ import { FiHeart } from 'react-icons/fi'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { AiOutlineMinus } from 'react-icons/ai'
 
-import image1 from '../../assets/gambe.png'
-import image2 from '../../assets/ravanello.png'
-import image3 from '../../assets/parma.png'
-import image4 from '../../assets/molla.png'
-
 export function Slider({items}) {
     const carousel = useRef();
     const [width, setWidth] = useState(0);
