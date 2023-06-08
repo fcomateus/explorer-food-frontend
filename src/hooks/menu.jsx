@@ -1,7 +1,7 @@
 import { createContext, useContext, useState } from "react";
-export const MenuContext = createContext({})
+export const MenuContext = createContext({});
 
-function MenuHandler({children}) {
+function MenuHandler({ children }) {
     const [menuOpened, setMenuOpened] = useState(false)
 
     function toggleMenu() {
@@ -9,7 +9,7 @@ function MenuHandler({children}) {
     }
 
     return (
-        <MenuContext
+        <MenuContext.Provider
             value={{
                 toggleMenu,
                 menuOpened
@@ -17,7 +17,7 @@ function MenuHandler({children}) {
         
         >
             {children}
-        </MenuContext>
+        </MenuContext.Provider>
     )
 }
 

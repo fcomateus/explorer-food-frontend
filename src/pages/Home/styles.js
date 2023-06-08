@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { SIZES } from "../../utils/sizes";
 
 export const Container = styled.div`
+    .invisible {
+        display: none !important;
+    }
+
     #panel {
         display: flex;
         justify-content: end;

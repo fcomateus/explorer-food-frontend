@@ -6,9 +6,12 @@ import { InputText } from '../InputText'
 import { Button } from '../Button'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useMenu } from '../../hooks/menu'
 
 export function Header() {
-  const [menuOpened, setMenuOpened] = useState(false)
+  // const [menuOpened, setMenuOpened] = useState(false)
+
+  const { toggleMenu, menuOpened } = useMenu();
 
   const mock = [
     {
@@ -32,12 +35,15 @@ export function Header() {
   ]
 
   function handleClickMenu(event) {
-    setMenuOpened(prevState => !prevState)
-    if(menuOpened) {
-      //sumir elementos
-    } else {
-      //aparecer elementos
-    }
+    toggleMenu();
+    
+    // setMenuOpened(prevState => !prevState)
+
+    // if(menuOpened) {
+    //   //sumir elementos
+    // } else {
+    //   //aparecer elementos
+    // }
   }
 
 

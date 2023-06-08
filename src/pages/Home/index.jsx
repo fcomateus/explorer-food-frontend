@@ -3,6 +3,7 @@ import { Header } from '../../components/Header'
 import { Slider } from '../../components/Slider'
 import { Footer } from '../../components/Footer'
 import { useEffect, useState } from 'react'
+import { useMenu } from '../../hooks/menu'
 
 import homeImgMobile from '../../assets/home-image-mobile.png'
 import homeImgDesktop from '../../assets/home-image-desktop.png'
@@ -14,6 +15,7 @@ import image4 from '../../assets/molla.png'
 
 
 export function Home() {
+  const { menuOpened } = useMenu();
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
   const updateScreenWidth = () => {
@@ -71,7 +73,9 @@ export function Home() {
         </div>
       </div>
 
-      <main id='content'>
+      <main id='content' 
+        className={!menuOpened ? '' : 'invisible'}
+        >
 
         <section className='food-exhibition'>
           <h4>Refeições</h4>
