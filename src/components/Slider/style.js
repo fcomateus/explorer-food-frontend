@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { SIZES } from '../../utils/sizes'
 
 export const Container = styled.div`
 
@@ -84,5 +85,11 @@ export const Container = styled.div`
         }
     }
 
+    @media(min-width: ${SIZES.laptop}) {
+        & {
+            margin-left: 0;
+            max-width: 100%;
+        }
+    }
     
 `

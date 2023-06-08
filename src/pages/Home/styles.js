@@ -91,7 +91,7 @@ export const Container = styled.div`
 
     @media(min-width: 890px) {
         #panel {
-            margin: 44px auto 16px;
+            margin: 44px auto 60px;
         }
     }
 
@@ -121,6 +121,10 @@ export const Container = styled.div`
         #panel {
             width: 1200px;
             padding-right: 80px;
+        }
+
+        #panel img {
+            left: -60px;
         }
     }
 `
