@@ -13,6 +13,15 @@ export const Container = styled.div`
 
     }
 
+    .description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 15px;
+        text-align: center;
+    }
+
     .carousel {
         cursor: grab;
         overflow: hidden;
@@ -55,15 +64,26 @@ export const Container = styled.div`
         align-self: end;
     }
 
-    .price {
+    .dish-price {
         color: ${({ theme }) => theme.COLORS.LIGHT_BLUE};
+    }
+
+    .dish-description {
+        display: none;
     }
 
     .card-controls {
         display: flex;
+        flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 10px;
+    }
+
+    .wrapper-buttons-quantity {
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
     .card-controls-buttons {
@@ -71,7 +91,7 @@ export const Container = styled.div`
     }
 
     .add-dish {
-        padding: 4px 59px;
+        padding: 12px 24px;
         background-color: ${({ theme }) => theme.COLORS.RED};
         font-size: 14px;
         border-radius: 5px;
@@ -87,8 +107,40 @@ export const Container = styled.div`
 
     @media(min-width: ${SIZES.laptop}) {
         & {
-            margin-left: 0;
-            max-width: 100%;
+            /* margin-left: 0; */
+            /* max-width: 100%; */
+        }
+
+        .item {
+            padding: 24px;
+            min-width: 300px;
+            max-width: 300px;
+        }
+
+        .item img {
+            height: 178px;
+            width: 178px;
+        }
+
+        .dish-name {
+            font-weight: bold;
+        }
+
+        .dish-description {
+            font-size: 12px;
+            display: inline;
+        }
+
+        .dish-price {
+            font-size: 32px;
+        }
+
+        .card-controls {
+            flex-direction: row;
+        }
+
+        .card-controls-buttons {
+            font-size: 35px;
         }
     }
     

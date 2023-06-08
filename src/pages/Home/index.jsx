@@ -36,29 +36,58 @@ export function Home() {
         image: image1,
         name: 'Gambe',
         price: 30.90,
-        quantity: '01'
+        quantity: '01',
+        description: 'Massa fresca com camarões e pesto.'
     },
     {
         id: 2,
         image: image2,
         name: 'Ravanello',
         price: 41.90,
-        quantity: '01'
+        quantity: '01',
+        description: 'Rabanetes, folhas verdes e molho agridoce salpicados com gergelim'
     },
     {
         id: 3,
         image: image3,
         name: 'Parma',
         price: 55.90,
-        quantity: '01'
+        quantity: '01',
+        description: 'Presunto de parma e rúcula em um pão com fermentação natural.'
     },
     {
         id: 4,
         image: image4,
         name: 'Molla',
         price: 29.90,
-        quantity: '01'
+        quantity: '01',
+        description: 'Molla description, muito gostoso'
     },
+    {
+      id: 5,
+      image: image4,
+      name: 'Molla',
+      price: 29.90,
+      quantity: '01',
+      description: 'Molla description, muito gostoso'
+    },
+    {
+      id: 6,
+      image: image4,
+      name: 'Molla',
+      price: 29.90,
+      quantity: '01',
+      description: 'Molla description, muito gostoso'
+    },
+    {
+      id: 7,
+      image: image4,
+      name: 'Molla',
+      price: 29.90,
+      quantity: '01',
+      description: 'Molla description, muito gostoso'
+    },
+  
 ]
 
   return (

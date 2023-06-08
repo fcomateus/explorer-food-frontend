@@ -10,7 +10,6 @@ export const Container = styled.div`
         display: flex;
         justify-content: end;
         align-items: center;
-
         position: relative;
 
         height: 120px;
@@ -84,20 +83,16 @@ export const Container = styled.div`
     @media(min-width: 780px) {
         #panel {
             padding-right: 80px;
-            width: 800px;
-            /* margin-inline: auto; */
         }
     }
 
-    @media(min-width: 890px) {
-        #panel {
-            margin: 44px auto 60px;
-        }
-    }
 
     @media(min-width: ${SIZES.laptop}) {
+        /* .centered {
+            width: 950px;
+        } */
+
         #panel {
-            width: 900px;
             height: 260px;
             margin-top: 164px;
             padding-right: 20px;
@@ -119,12 +114,31 @@ export const Container = styled.div`
 
     @media(min-width: ${SIZES.laptopL}) {
         #panel {
-            width: 1200px;
             padding-right: 80px;
+        }
+
+        #panel, #content {
+            width: 1200px;
+            margin-inline: auto;
         }
 
         #panel img {
             left: -60px;
         }
+
+        #content {
+            
+        }
     }
+
+    @media(min-width: ${SIZES.desktop}){
+        #panel, #content {
+            width: 1400px;
+        }
+
+        #panel {
+            padding-right: 140px;
+        }
+    }
+    
 `

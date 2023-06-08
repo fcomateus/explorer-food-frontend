@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FiHeart } from 'react-icons/fi'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { AiOutlineMinus } from 'react-icons/ai'
+import { Link } from 'react-router-dom'
 
 export function Slider({items}) {
     const carousel = useRef();
@@ -56,27 +57,36 @@ export function Slider({items}) {
                             </button>
 
                             <img src={dish.image}/>
-                            <p>{dish.name}</p>
-                            <p className='price'>R$ {dish.price}</p>
-
-                            <div className='card-controls'>
-                                <button 
-                                    className='card-controls-buttons'
-                                    onClick={() => handleAdd(dish)}    
-                                >
-                                    <AiOutlinePlus/>
-                                </button>
-                                {dish.quantity}
-                                <button className='card-controls-buttons'>
-                                    <AiOutlineMinus/>
-                                </button>
+                            <div className='description'>
+                                <Link className='dish-name'>{dish.name} &gt;</Link>
+                                <p className='dish-description'>{dish.description}</p>
+                                <p className='dish-price'>R$ {dish.price}</p>
                             </div>
 
-                            <button
-                                className='add-dish'
-                            >
-                                incluir
-                            </button>
+                            <div className='card-controls'>
+
+                                <div className='wrapper-buttons-quantity'>
+                                    <button 
+                                        className='card-controls-buttons'
+                                        onClick={() => handleAdd(dish)}    
+                                    >
+                                        <AiOutlinePlus/>
+                                    </button>
+                                    {dish.quantity}
+                                    <button className='card-controls-buttons'>
+                                        <AiOutlineMinus/>
+                                    </button>
+                                </div>
+
+                                <div>
+                                    <button
+                                        className='add-dish'
+                                    >
+                                        incluir
+                                    </button>
+                                </div>
+                            </div>
+
                         </motion.div>
                     ))}
 
