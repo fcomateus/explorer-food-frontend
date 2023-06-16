@@ -54,6 +54,10 @@ export const Container = styled.div`
         #panel p {
             display: none;
         }
+
+        .section-title {
+            font-size: 18px;
+        }
     }
 
     @media(min-width: 375px) {
@@ -109,6 +113,10 @@ export const Container = styled.div`
         
         #panel-text p {
             font-size: 16px;
+        }
+
+        .section-title {
+            font-size: 24px;
         }
     }
 

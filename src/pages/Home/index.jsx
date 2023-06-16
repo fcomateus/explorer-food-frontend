@@ -107,21 +107,21 @@ export function Home() {
         >
 
         <section className='food-exhibition'>
-          <h4>Refeições</h4>
+          <h2 className='section-title'>Refeições</h2>
           <Slider
             items={mock}
           />
         </section>
 
         <section className='food-exhibition'>
-          <h4>Pratos principais</h4>
+          <h2 className='section-title'>Pratos principais</h2>
           <Slider
             items={mock}
           />
         </section>
 
         <section className='food-exhibition'>
-          <h4>Pratos principais</h4>
+          <h2 className='section-title'>Pratos principais</h2>
           <Slider
             items={mock}
           />

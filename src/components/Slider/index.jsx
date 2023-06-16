@@ -58,7 +58,7 @@ export function Slider({items}) {
 
                             <img src={dish.image}/>
                             <div className='description'>
-                                <Link className='dish-name'>{dish.name} &gt;</Link>
+                                <Link to={`/details/${dish.id}`} className='dish-name'>{dish.name} &gt;</Link>
                                 <p className='dish-description'>{dish.description}</p>
                                 <p className='dish-price'>R$ {dish.price}</p>
                             </div>
