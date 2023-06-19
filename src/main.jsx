@@ -6,15 +6,19 @@ import GlobalStyles from './styles/global'
 import theme from './styles/theme'
 
 import { MenuHandler } from './hooks/menu'
+import { AuthProvider } from './hooks/auth'
 import { Routes } from './routes'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles/>
-      <MenuHandler>
-        <Routes/>
-      </MenuHandler>
+      <AuthProvider>
+        <MenuHandler>
+          <Routes/>
+        </MenuHandler>
+      </AuthProvider>    
+
     </ThemeProvider>
   </React.StrictMode>,
 )
