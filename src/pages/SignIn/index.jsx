@@ -1,9 +1,22 @@
+import { Link, useNavigate } from 'react-router-dom'
+import { useState } from 'react';
+import { useAuth } from '../../hooks/auth';
+
 import { Container } from './style';
-import { Link } from 'react-router-dom'
 import { Button } from '../../components/Button'
 import { InputText } from '../../components/InputText' 
 
 export function SignIn() {
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  const { signIn } = useAuth();
+
+  function handleSignIn(e) {
+    e.preventDefault()
+    signIn({ email, password })
+  }
+
   return(
     <Container>
       <div id='header'>
@@ -16,23 +29,30 @@ export function SignIn() {
         </div>
       </div>
 
-      <form className='flex-column'>
+      <form 
+        className='flex-column'
+        onSubmit={e => handleSignIn(e)}  
+      >
         <h2>Faça login</h2>
 
         <div className="input-wrapper">
           <label htmlFor="email">Email</label>
-          <InputText 
+          <InputText
+            type="email"
             id="email"
-            placeholder="Exemplo: exemplo@exemplo.com.br"  
+            placeholder="Exemplo: exemplo@exemplo.com.br"
+            onChange={ e => setEmail(e.target.value)}
           />
         </div>
 
         <div className="input-wrapper">
           <label htmlFor="password">Senha</label>
           <InputText 
+            type="password"
             id="email"
             min='6'
-            placeholder="No mínimo 6 caracteres"  
+            placeholder="No mínimo 6 caracteres"
+            onChange={ e => setPassword(e.target.value)}
           />
         </div>
 

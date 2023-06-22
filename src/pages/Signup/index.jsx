@@ -1,9 +1,39 @@
 import { Container } from './style';
-import { Link } from 'react-router-dom'
+import { Link, useNavigate} from 'react-router-dom'
 import { Button } from '../../components/Button'
-import { InputText } from '../../components/InputText' 
+import { InputText } from '../../components/InputText'
+import { useState } from 'react'; 
+
+import { api } from '../../services/api.js'
 
 export function SignUp() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate()
+
+  function handleSignUp(e) {
+    e.preventDefault()
+    if(!name || !email || !password) {
+      return alert('Preencha todos os campos!');
+    }
+
+    api.post('/users', {name, email, password})
+    .then(() => {
+      alert('Usuário cadastrado com sucesso!')
+      navigate('/')
+    })
+    .catch(error => {
+      if(error.response) {
+        alert(error.response.data.message)
+      } else {
+        alert('Não foi possível cadastrar')
+      }
+    })
+
+  }
+
   return(
     <Container>
       <div id='header'>
@@ -16,14 +46,19 @@ export function SignUp() {
         </div>
       </div>
 
-      <form className='flex-column'>
+      <form 
+        className='flex-column'
+        onSubmit={e => handleSignUp(e)}
+      >
         <h2>Crie sua conta</h2>
 
         <div className="input-wrapper">
           <label htmlFor="name">Seu nome</label>
           <InputText 
             id="name"
-            placeholder="Exemplo: Maria da Silva"  
+            type="text"
+            placeholder="Exemplo: Maria da Silva"
+            onChange={e => setName(e.target.value)}  
           />
         </div>
 
@@ -31,7 +66,9 @@ export function SignUp() {
           <label htmlFor="email">Email</label>
           <InputText 
             id="email"
-            placeholder="Exemplo: exemplo@exemplo.com.br"  
+            type="email"
+            placeholder="Exemplo: exemplo@exemplo.com.br" 
+            onChange={e => setEmail(e.target.value)} 
           />
         </div>
 
@@ -40,10 +77,11 @@ export function SignUp() {
           <InputText 
             id="email"
             min='6'
-            placeholder="No mínimo 6 caracteres"  
+            type="password"
+            placeholder="No mínimo 6 caracteres"
+            onChange={e => setPassword(e.target.value)}
           />
         </div>
-
         <div className="input-wrapper">
           <Button
             color='#750310'

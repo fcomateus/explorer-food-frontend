@@ -3,13 +3,18 @@ import { AiOutlineMenu } from 'react-icons/ai'
 import { RxExit } from 'react-icons/rx'
 import { RxCross1 } from 'react-icons/rx'
 import { InputText } from '../InputText'
-import { Button } from '../Button'
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useMenu } from '../../hooks/menu'
+import { useAuth } from '../../hooks/auth'
 
 export function Header() {
-  // const [menuOpened, setMenuOpened] = useState(false)
+  const { signOut, user } = useAuth();
+  const navigate = useNavigate();
+
+  function handleSignOut() {
+    navigate('/')
+    signOut();
+  }
 
   const { toggleMenu, menuOpened } = useMenu();
 
@@ -34,16 +39,9 @@ export function Header() {
     },
   ]
 
-  function handleClickMenu(event) {
+  function handleClickMenu() {
     toggleMenu();
     
-    // setMenuOpened(prevState => !prevState)
-
-    // if(menuOpened) {
-    //   //sumir elementos
-    // } else {
-    //   //aparecer elementos
-    // }
   }
 
 
@@ -92,7 +90,9 @@ export function Header() {
           </div>
 
           <div id='exit-wrapper'>
-            <button id="menu-exit-app">
+            <button 
+              id="menu-exit-app"
+            >
               Sair
             </button>
           </div>
@@ -144,7 +144,11 @@ export function Header() {
         </button>
 
       <div id='exit'>
-        <RxExit/>
+        <button
+          onClick={handleSignOut}
+        >
+         <RxExit/>
+        </button>
       </div>
 
     </Container>
