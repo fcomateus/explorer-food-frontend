@@ -5,10 +5,6 @@ export const Container = styled.header`
   height: 100px;
   background-color: ${({ theme }) => theme.COLORS.HEADER};
   color: ${({ theme }) => theme.COLORS.WHITE};
-  
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   padding: 0px 10px;
 
 
@@ -51,10 +47,6 @@ export const Container = styled.header`
     margin: 32px 28px;
   }
 
-  /* adicionar animação de abertura de menu */
-  #menu {
-
-  }
 
   #open-menu-button {
     background: none;
@@ -89,32 +81,21 @@ export const Container = styled.header`
     overflow-y: scroll;
   }
 
-  .opened-menu #exit-wrapper {
+  .opened-menu .menu-option {
+    padding-bottom: 2px;
     border-bottom: 1px solid ${({ theme }) => theme.COLORS.TAG_EXIBITION};
   }
 
-  .opened-menu #menu-exit-app {
+  .opened-menu .menu-option button {
+    margin-top: 16px;
     border: none;
     background: none;
-    font-size: 24px;
+    font-size: 22px;
   }
 
-
-  #search {
+  .exit-costumer,
+  .exit-admin {
     display: none;
-  }
-
-  #exit {
-    display: none;
-  }
-
-  #header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-
-    gap: 10px;
   }
 
   #bill-icon {
@@ -136,8 +117,49 @@ export const Container = styled.header`
     border-radius: 999px;
   }
 
-  #my-orders {
+  #my-orders,
+  #new-dish {
     display: none;
+  }
+
+  .header-bar-costumer {
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .logo-wrapper-mobile-header-bar,
+  .logo-wrapper-mobile-header-bar-admin {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .search-header-bar-costumer,
+  .search-header-bar-admin {
+    display: none;
+  }
+
+  .header-bar-admin {
+    align-items: center;
+    height: 100%;
+    justify-content: space-between;
+  }
+
+  .logo-wrapper-mobile-header-bar-admin {
+    /* align-self: center; */
+    margin: 0 auto;
+  }
+
+  #app-name-admin-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  #label-admin-header {
+    font-size: 10px;
+    color: ${({ theme }) => theme.COLORS.LIGHT_BLUE};
   }
 
   @media(min-width: ${SIZES.tablet}) {
@@ -146,12 +168,17 @@ export const Container = styled.header`
     padding: 0 30px;
   }
 
-  #search {
+  .search-header-bar-costumer,
+  .search-header-bar-admin {
     display: block;
     width: 300px;
    }
 
-   #open-menu-button {
+   .logo-wrapper-mobile-header-bar-admin {
+    margin: 0;
+  }
+
+   .open-menu-button-header-mobile {
     display: none;
    }
 
@@ -174,14 +201,28 @@ export const Container = styled.header`
 
    }
 
-   #exit {
+
+   #new-dish {
+    display: block;
+    background-color: ${({ theme }) => theme.COLORS.RED};
+    border: none;
+    border-radius: 5px;
+
+    font-family: 'Poppins', sans-serif;
+    padding: 12px 46.5px;
+
+   }
+
+   .exit-costumer,
+   .exit-admin {
     display: block;
    }
 
   }
 
   @media(min-width: ${SIZES.laptop}) {
-    #search {
+    .search-header-bar-costumer,
+    .search-header-bar-admin {
       width: 500px;
     }
   }
@@ -190,5 +231,9 @@ export const Container = styled.header`
     & {
       padding: 0 300px;
     }
+    .search-header-bar-costumer,
+    .search-header-bar-admin {
+    width: 700px;
+   }
   }
 `

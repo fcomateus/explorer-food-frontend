@@ -12,7 +12,8 @@ function MenuHandler({ children }) {
         <MenuContext.Provider
             value={{
                 toggleMenu,
-                menuOpened
+                menuOpened,
+                setMenuOpened
             }}
         
         >
