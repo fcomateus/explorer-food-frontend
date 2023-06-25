@@ -13,12 +13,21 @@ export const Container = styled.div`
 
     }
 
-    .description {
+    .description-costumer {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 15px;
+        text-align: center;
+    }
+
+    .description-admin {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
         text-align: center;
     }
 
@@ -64,15 +73,25 @@ export const Container = styled.div`
         align-self: end;
     }
 
-    .dish-price {
+    .edit {
+        position: absolute;
+        right: 5px;
+        top: 5px;
+        font-size: 30px;
+        align-self: end;
+    }
+
+    .dish-price-costumer,
+    .dish-price-admin {
         color: ${({ theme }) => theme.COLORS.LIGHT_BLUE};
     }
 
-    .dish-description {
+    .dish-description-costumer,
+    .dish-description-admin {
         display: none;
     }
 
-    .card-controls {
+    .card-controls-costumer {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -86,11 +105,11 @@ export const Container = styled.div`
         gap: 8px;
     }
 
-    .card-controls-buttons {
+    .card-controls-buttons-costumer {
         font-size: 20px;
     }
 
-    .add-dish {
+    .add-dish-costumer {
         padding: 12px 24px;
         background-color: ${({ theme }) => theme.COLORS.RED};
         font-size: 14px;
@@ -126,13 +145,17 @@ export const Container = styled.div`
             font-weight: bold;
         }
 
-        .dish-description {
+        .dish-description-costumer {
             font-size: 12px;
             display: inline;
         }
 
-        .dish-price {
+        .dish-price-costumer {
             font-size: 32px;
+        }
+
+        .dish-price-admin {
+            font-size: 28px;
         }
 
         .card-controls {

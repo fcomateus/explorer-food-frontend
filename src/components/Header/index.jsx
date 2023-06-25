@@ -18,6 +18,10 @@ export function Header() {
     signOut();
   }
 
+  function handleNewDish() {
+    setMenuOpened(false)
+    navigate('/new-dish')
+  }
 
   const mock = [
     {
@@ -101,7 +105,7 @@ export function Header() {
             style={{ display: user.role === 'admin' ? 'block' : 'none'}}
             className='menu-option'  
           >
-            <button>Novo prato</button>
+            <button onClick={handleNewDish}>Novo prato</button>
           </div>
 
         </div>
@@ -206,7 +210,7 @@ export function Header() {
           />
         </div>
 
-        <button id='new-dish'>
+        <button onClick={handleNewDish} id='new-dish'>
           Novo prato
         </button>
 

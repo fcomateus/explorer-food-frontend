@@ -14,6 +14,11 @@ export const Container = styled.div`
 
     color: ${({ theme }) => theme.COLORS.WHITE};
   }
+
+  input::placeholder {
+    color: ${({ theme }) => theme.COLORS.TAG_INPUT};
+    font-family: 'Poppins', sans-serif;
+  }
   
   & input:focus {
     border-radius: 5px;

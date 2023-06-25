@@ -4,9 +4,14 @@ import { motion } from "framer-motion";
 import { FiHeart } from 'react-icons/fi'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { AiOutlineMinus } from 'react-icons/ai'
+import { BiEditAlt } from 'react-icons/bi'
 import { Link } from 'react-router-dom'
+import { useAuth } from '../../hooks/auth'
+
 
 export function Slider({items}) {
+     const {  user } = useAuth();
+
     const carousel = useRef();
     const [width, setWidth] = useState(0);
     const [dishes, setDishes] = useState(items)
@@ -50,37 +55,37 @@ export function Slider({items}) {
                     dragConstraints={{ right: 0, left: -width }}
                 >
 
-                    {items.map(dish => (
+                    {user.role === 'costumer' ? items.map(dish => (
                         <motion.div className="item" key={dish.id}>
                             <button className='favorite'>
                                 <FiHeart/>
                             </button>
 
                             <img src={dish.image}/>
-                            <div className='description'>
+                            <div className='description-costumer'>
                                 <Link to={`/details/${dish.id}`} className='dish-name'>{dish.name} &gt;</Link>
-                                <p className='dish-description'>{dish.description}</p>
-                                <p className='dish-price'>R$ {dish.price}</p>
+                                <p className='dish-description-costumer'>{dish.description}</p>
+                                <p className='dish-price-costumer'>R$ {dish.price}</p>
                             </div>
 
-                            <div className='card-controls'>
+                            <div className='card-controls-costumer'>
 
                                 <div className='wrapper-buttons-quantity'>
                                     <button 
-                                        className='card-controls-buttons'
+                                        className='card-controls-buttons-costumer'
                                         onClick={() => handleAdd(dish)}    
                                     >
                                         <AiOutlinePlus/>
                                     </button>
                                     {dish.quantity}
-                                    <button className='card-controls-buttons'>
+                                    <button className='card-controls-buttons-costumer'>
                                         <AiOutlineMinus/>
                                     </button>
                                 </div>
 
                                 <div>
                                     <button
-                                        className='add-dish'
+                                        className='add-dish-costumer'
                                     >
                                         incluir
                                     </button>
@@ -88,7 +93,26 @@ export function Slider({items}) {
                             </div>
 
                         </motion.div>
-                    ))}
+                    ))
+                    
+                    : items.map( dish => (
+                        <motion.div className='item'>
+                            <Link to={`/details/${dish.id}`} className='edit'>
+                                <BiEditAlt/>
+                            </Link>
+                            <img src={dish.image}/>
+                            <div className='description-admin'>
+                                <Link to={`/details/${dish.id}`} className='dish-name'>{dish.name} &gt;</Link>
+                                <p className='dish-description-admin'>{dish.description}</p>
+                                <p className='dish-price-admin'>R$ {dish.price}</p>
+                            </div>
+                        </motion.div>
+                    ))
+                    
+                    
+                    
+                    
+                    }
 
                 </motion.div>
             </motion.div>

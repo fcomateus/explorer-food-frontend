@@ -13,6 +13,7 @@ export default createGlobalStyle`
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_BODY};
     -webkit-font-smoothing: antialiased; 
     font-family: 'Poppins', sans-serif;
+    overflow-y: scroll;
   }
 
   h1, h2, h4 {
@@ -33,8 +34,9 @@ export default createGlobalStyle`
   }
 
   button, a {
-        cursor: pointer;
-        transition: filter 0.2s;
+      cursor: pointer;
+      transition: filter 0.2s;
+      font-family: 'Poppins', sans-serif;
   }
   
   button:hover, a:hover {

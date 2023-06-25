@@ -49,7 +49,7 @@ export function SignIn() {
           <label htmlFor="password">Senha</label>
           <InputText 
             type="password"
-            id="email"
+            id="password"
             min='6'
             placeholder="No mínimo 6 caracteres"
             onChange={ e => setPassword(e.target.value)}

@@ -75,7 +75,7 @@ export function SignUp() {
         <div className="input-wrapper">
           <label htmlFor="password">Senha</label>
           <InputText 
-            id="email"
+            id="password"
             min='6'
             type="password"
             placeholder="No mínimo 6 caracteres"

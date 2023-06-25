@@ -10,6 +10,8 @@ export default {
     RED: '#750310',
     LIGHT_BLUE: '#82F3FF',
     WHITE: '#E1E1E6',
-    GRAY: '#4D585E'
+    GRAY: '#4D585E',
+    LABEL: '#C4C4CC',
+    PLACEHOLDER: '#7C7C8A'
   }
 }

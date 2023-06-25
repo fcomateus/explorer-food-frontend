@@ -114,14 +114,14 @@ export function Home() {
         </section>
 
         <section className='food-exhibition'>
-          <h2 className='section-title'>Pratos principais</h2>
+          <h2 className='section-title'>Sobremesas</h2>
           <Slider
             items={mock}
           />
         </section>
 
         <section className='food-exhibition'>
-          <h2 className='section-title'>Pratos principais</h2>
+          <h2 className='section-title'>Bebidas</h2>
           <Slider
             items={mock}
           />
