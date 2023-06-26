@@ -13,6 +13,8 @@ export const Container = styled.div`
     padding: 2px 8px;
 
     color: ${({ theme }) => theme.COLORS.WHITE};
+    font-family: 'Poppins', sans-serif;
+
   }
 
   input::placeholder {

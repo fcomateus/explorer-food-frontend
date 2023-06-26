@@ -5,7 +5,7 @@ export function TextArea({ placeholder, min, max, id, ...rest }) {
     <Container
     {...rest}
     >
-      <input 
+      <textarea 
         id={id}
         minLength={min}
         maxLength={max}

@@ -1,8 +1,9 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  
-  & input {
+  height: 100px;
+
+  & textarea {
     width: 100%;
     height: 100%;
     
@@ -12,16 +13,18 @@ export const Container = styled.div`
     padding: 2px 8px;
 
     font-size: 14px;
-
+    resize: none;
     color: ${({ theme }) => theme.COLORS.WHITE};
+    font-family: 'Poppins', sans-serif;
+
   }
 
-  input::placeholder {
+  textarea::placeholder {
     color: ${({ theme }) => theme.COLORS.TAG_INPUT};
     font-family: 'Poppins', sans-serif;
   }
   
-  & input:focus {
+  & textarea:focus {
     border-radius: 5px;
   }
 `

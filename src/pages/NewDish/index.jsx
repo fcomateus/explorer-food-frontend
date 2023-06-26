@@ -6,6 +6,8 @@ import { InputText } from '../../components/InputText'
 import { InputFile } from '../../components/InputFile'
 import { SelectInput } from '../../components/SelectInput'
 import { SelectInputMulti } from '../../components/SelectInputMulti'
+import { TextArea } from '../../components/TextArea'
+import { Button } from '../../components/Button'
 import { useEffect, useState } from 'react'
 import { api } from '../../services/api'
 
@@ -77,8 +79,16 @@ export function NewDish() {
                     </div>
                     <div className="input-wrapper">
                         <label htmlFor="description">Descrição</label>
-                        
+                        <TextArea/>
                     </div>
+
+                    <div className="input-wrapper">
+                        <Button
+                            color='#750310'
+                            text='Criar novo prato'
+                        />
+                    </div>
+
                 </form>
             </Container>
             <Footer/>
