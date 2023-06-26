@@ -17,7 +17,10 @@ export const Container = styled.div`
         font-size: 16px;
         gap: 6px;
         background-color: ${({ theme }) => theme.COLORS.SEARCH};
+    }
 
+    label:hover {
+        cursor: pointer;
     }
     
     svg {
