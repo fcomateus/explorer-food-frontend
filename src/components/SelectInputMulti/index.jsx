@@ -2,7 +2,7 @@ import CreatableSelect from 'react-select/creatable'
 import { useState } from 'react'
 import { Container } from './style'
 
-export function SelectInputMulti({ ...rest }) {
+export function SelectInputMulti({ callback,...rest }) {
 
     const components = {
         DropdownIndicator: null,
@@ -65,12 +65,14 @@ export function SelectInputMulti({ ...rest }) {
                 isMulti
                 menuIsOpen={false}
                 onChange={(newValue) => setValue(newValue)}
-                onInputChange={(newValue) => setInputValue(newValue)}
+                onInputChange={(newValue) => {
+                    setInputValue(newValue)
+                    callback(value)
+                }}
                 onKeyDown={handleKeyDown}
                 placeholder="Adicionar ingrediente"
                 value={value}
                 styles={style}
-                className='multiValue'
             />
         </Container>
     )
