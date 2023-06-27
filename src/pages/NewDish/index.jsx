@@ -75,7 +75,7 @@ export function NewDish() {
             formData.append('file', dishFile)
             formData.append('name', name)
             formData.append('category', selectedCategory.value)
-            formData.append('ingredients', ingredients)
+            formData.append('ingredients', JSON.stringify(ingredients))
             formData.append('price', price)
             formData.append('description', description)
            

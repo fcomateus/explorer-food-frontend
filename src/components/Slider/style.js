@@ -145,7 +145,8 @@ export const Container = styled.div`
             font-weight: bold;
         }
 
-        .dish-description-costumer {
+        .dish-description-costumer,
+        .dish-description-admin {
             font-size: 12px;
             display: inline;
         }
