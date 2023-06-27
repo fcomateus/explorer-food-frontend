@@ -133,9 +133,9 @@ export function Header() {
             <path d="M13 0.366394L25.9904 7.86639V22.8664L13 30.3664L0.00961876 22.8664V7.86639L13 0.366394Z" fill="#065E7C"/>
           </svg>
 
-          <div>
+          <Link to="/">
             food explorer
-          </div>
+          </Link>
 
         </div>
 
@@ -196,10 +196,10 @@ export function Header() {
             <path d="M13 0.366394L25.9904 7.86639V22.8664L13 30.3664L0.00961876 22.8664V7.86639L13 0.366394Z" fill="#065E7C"/>
           </svg>
 
-          <div id='app-name-admin-wrapper'>
+          <Link to="/" id='app-name-admin-wrapper'>
             <p>food explorer</p> 
             <p id='label-admin-header'>admin</p>
-          </div>
+          </Link>
 
         </div>
 

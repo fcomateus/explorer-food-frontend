@@ -1,8 +1,8 @@
 import CreatableSelect from 'react-select/creatable'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Container } from './style'
 
-export function SelectInputMulti({ callback,...rest }) {
+export function SelectInputMulti({ callback, getter, defaultOptions,...rest }) {
 
     const components = {
         DropdownIndicator: null,
@@ -55,6 +55,12 @@ export function SelectInputMulti({ callback,...rest }) {
         })
     }
 
+    useEffect(() => {
+        if(defaultOptions && defaultOptions.length > 0) {
+            setValue(defaultOptions)
+        }
+    }, [])
+
     return (
         <Container>
             <CreatableSelect
@@ -64,10 +70,13 @@ export function SelectInputMulti({ callback,...rest }) {
                 isClearable
                 isMulti
                 menuIsOpen={false}
-                onChange={(newValue) => setValue(newValue)}
+                onChange={(newValue) => {
+                    setValue(newValue)
+                    // getter(value)
+                }}
                 onInputChange={(newValue) => {
                     setInputValue(newValue)
-                    callback(value)
+                    getter(value)
                 }}
                 onKeyDown={handleKeyDown}
                 placeholder="Adicionar ingrediente"

@@ -1,6 +1,6 @@
 import { Container } from './style';
 
-export function InputText({ placeholder, min, max, type, id, ...rest }) {
+export function InputText({ placeholder, min, defaultValue, max, type, id, ...rest }) {
   return (
     <Container
     {...rest}
@@ -8,6 +8,7 @@ export function InputText({ placeholder, min, max, type, id, ...rest }) {
       <input 
         id={id}
         type={type}
+        defaultValue={defaultValue}
         minLength={min}
         maxLength={max}
         placeholder={placeholder}

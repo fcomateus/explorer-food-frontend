@@ -1,7 +1,7 @@
 import { Container } from './style'
 import { Header } from '../../components/Header'
 import { Footer } from '../../components/Footer'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { InputText } from '../../components/InputText'
 import { InputFile } from '../../components/InputFile'
 import { SelectInput } from '../../components/SelectInput'
@@ -12,16 +12,16 @@ import { useEffect, useState } from 'react'
 import { api } from '../../services/api'
 import { _ } from 'lodash'
 
-export function NewDish() {
+export function Edit() {
     const navigate = useNavigate()
+    const params = useParams();
+
+    const [dish, setDish] = useState({});
 
     const [dishFile, setDishFile] = useState(null);
-    
     const [name, setName] = useState('');
-    
     const [categories, setCategories] = useState([])
     const [selectedCategory, setSelectedCategory] = useState({});
-
     const [ingredients, setIngredients] = useState([])
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
@@ -36,7 +36,8 @@ export function NewDish() {
         setSelectedCategory(selectedOption)
     }
 
-    async function handleSubmit(e) {
+    async function handleUpdate(e) {
+        console.log('OI');
         e.preventDefault();
 
         if(!dishFile) {
@@ -73,6 +74,7 @@ export function NewDish() {
             formData.append('price', parseFloat(price).toFixed(2))
             formData.append('description', description)
            
+            console.log(formData);
 
             await api.post('/dishes', formData)
             alert('Prato criado com sucesso!')
@@ -88,6 +90,18 @@ export function NewDish() {
 
     }
 
+    async function handleDelete() {
+        const confirmDelete = confirm('Tem certeza que deseja deletar o prato?')
+
+        if(confirmDelete) {
+            await api.delete(`/dishes/${params.id}`)
+            alert('Prato deletado')
+            navigate('/')
+        }
+
+
+    }
+
     function getOptions(options) {
         const treatedOptions = options.map( option => {
             return {
@@ -99,10 +113,11 @@ export function NewDish() {
     }
 
     useEffect(() => {
+        let options = null
         async function fetchCategories() {
             const response = await api.get('/categories')
             const categories = response.data
-            const options = categories.map( category => {
+            options = categories.map( category => {
                 return {
                     value: category.id,
                     label: category.description
@@ -111,7 +126,25 @@ export function NewDish() {
             setCategories(options)            
         }
 
+        async function fetchDishDetails() {
+            const response = await api.get(`/dishes/${params.id}`)
+            // console.log('dish',response.data);
+            const data = response.data
+            setDish(data);
+            setName(data.name)
+            const defaultCategory = _.find(options, category => category.value == data.category_id)
+            setSelectedCategory(defaultCategory)
+
+            const ingredientsOptions = JSON.parse(data.ingredients)
+            setIngredients(ingredientsOptions)
+
+            setPrice(data.price)
+            setDescription(data.description)
+        }
+
+        
         fetchCategories()
+        fetchDishDetails()
 
     }, [])
 
@@ -123,9 +156,9 @@ export function NewDish() {
                     &lt; voltar
                 </button>
 
-                <h3>Novo prato</h3>
+                <h3>Editar prato</h3>
 
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={ e => e.preventDefault()}>
 
                     <div className="input-wrapper">
                         <label htmlFor="dish-image">Imagem do prato</label>
@@ -140,6 +173,7 @@ export function NewDish() {
                         <label htmlFor="name">Nome</label>
                         <InputText
                             placeholder="Ex: Salada Ceasar"
+                            defaultValue={name}
                             onChange={ e => setName(e.target.value.trim())}
                         />
                     </div>
@@ -148,6 +182,7 @@ export function NewDish() {
                         <label htmlFor="category">Categoria</label>
                         <SelectInput 
                             options={categories} 
+                            value={selectedCategory}
                             id="category"
                             isSearchable={true}
                             onChange={handleSelectCategory}
@@ -155,11 +190,18 @@ export function NewDish() {
                     </div>
 
                     <div className="input-wrapper">
-                        <label htmlFor="ingredients">Ingredientes</label>
-                        <SelectInputMulti
-                            getter={getOptions}
-                            id='ingredients'
-                        />
+                        {
+                            !_.isEmpty(ingredients) &&
+                            <>
+                                <label htmlFor="ingredients">Ingredientes</label>
+                                <SelectInputMulti
+                                    getter={getOptions}
+                                    defaultOptions={ingredients}
+                                    id='ingredients'
+                                />
+                            
+                            </>
+                        }
                     </div>
 
                     <div className="input-wrapper">
@@ -167,6 +209,7 @@ export function NewDish() {
                         <InputText
                             type='text'
                             placeholder="R$ 00,00"
+                            defaultValue={price}
                             onChange={e => setPrice(e.target.value)}
                         />
                     </div>
@@ -174,18 +217,25 @@ export function NewDish() {
                     <div className="input-wrapper">
                         <label htmlFor="description">Descrição</label>
                         <TextArea
+                            defaultValue={description}
                             onChange={e => setDescription(e.target.value.trim())}
                         />
                     </div>
-
-                    <div className="input-wrapper">
-                        <Button
-                            color='#750310'
-                            text='Criar novo prato'
-                        />
-                    </div>
-
                 </form>
+
+                <div className="buttons-wrapper">
+                    <Button
+                        color='#750310'
+                        text='Atualizar prato'
+                        onClick={handleUpdate}
+                    />
+
+                    <Button
+                        color='#76797B'
+                        text='Excluir prato'
+                        onClick={handleDelete}
+                    />
+                </div>
             </Container>
             <Footer/>
         </>

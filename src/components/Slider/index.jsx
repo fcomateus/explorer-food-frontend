@@ -97,7 +97,7 @@ export function Slider({items}) {
                     
                     : items.map( dish => (
                         <motion.div className='item' key={dish.id}>
-                            <Link to={`/details/${dish.id}`} className='edit'>
+                            <Link to={`/edit/${dish.id}`} className='edit'>
                                 <BiEditAlt/>
                             </Link>
                             <img src={dish.image}/>

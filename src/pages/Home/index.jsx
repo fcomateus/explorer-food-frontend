@@ -10,12 +10,6 @@ import homeImgDesktop from '../../assets/home-image-desktop.png'
 import { api } from '../../services/api'
 import { _ } from 'lodash'
 
-// import image1 from '../../assets/gambe.png'
-// import image2 from '../../assets/ravanello.png'
-// import image3 from '../../assets/parma.png'
-// import image4 from '../../assets/molla.png'
-
-
 export function Home() {
   const { menuOpened } = useMenu();
   const [screenWidth, setScreenWidth] = useState(window.innerWidth)
@@ -44,24 +38,28 @@ export function Home() {
         return {
           ...dish,
           ingredients: JSON.parse(dish.ingredients),
+          price: dish.price.toLocaleString('pt-br', {
+            style: 'decimal',
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+          }),
           image: `${api.defaults.baseURL}/files/${dish.image_path}`
         }
       })
 
       setDishes(treatedData)
-      console.log('dishes',treatedData);
       const dishesByCategory = _.groupBy(treatedData, 'category_id')
-      console.log('dishesByCategory',dishesByCategory);
       
-      if(dishesByCategory[1].length > 0) {
+      //ids das categorias
+      if(dishesByCategory[1] && dishesByCategory[1].length > 0) {
         setMeals(dishesByCategory[1]);
       }
 
-      if(dishesByCategory[2].length > 0) {
+      if(dishesByCategory[2] && dishesByCategory[2].length > 0) {
         setDeserts(dishesByCategory[2]);
       }
 
-      if(dishesByCategory[3].length > 0) {
+      if(dishesByCategory[3] && dishesByCategory[3].length > 0) {
         setDrinks(dishesByCategory[3]);
       }
       
