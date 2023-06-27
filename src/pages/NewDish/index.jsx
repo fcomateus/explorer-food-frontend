@@ -28,9 +28,7 @@ export function NewDish() {
 
 
     function handleSubmitImage(event) {
-        console.log('OI');
         const file = event.target.files[0]
-        console.log('arquivo',file);
         setDishFile(file);
     }
 
@@ -38,15 +36,8 @@ export function NewDish() {
         setSelectedCategory(selectedOption)
     }
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        console.log('info');
-        console.log('imagem do prato',dishFile);
-        console.log(name);
-        console.log(selectedCategory);
-        console.log(ingredients);
-        console.log(price);
-        console.log(description);
 
         if(!dishFile) {
             return alert('Insira do arquivo de imagem');
@@ -70,6 +61,35 @@ export function NewDish() {
 
         if(!description) {
             return alert('Digite uma descrição')
+        }
+
+        try {
+            const formData = new FormData();
+            const dishData = {
+                name,
+                category: selectedCategory.value,
+                ingredients,
+                price,
+                description
+            }
+            formData.append('file', dishFile)
+            formData.append('name', name)
+            formData.append('category', selectedCategory.value)
+            formData.append('ingredients', ingredients)
+            formData.append('price', price)
+            formData.append('description', description)
+           
+
+            await api.post('/dishes', formData)
+            alert('Prato criado com sucesso!')
+            navigate('/')
+
+        } catch(error) {
+            if(error.response) {
+                alert(error.response.data.message)
+            } else {
+                alert("Não foi possível criar prato")
+            }
         }
 
     }
