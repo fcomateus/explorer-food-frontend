@@ -67,8 +67,11 @@ export function Edit() {
 
         try {
             const formData = new FormData();
-            
+
+            console.log('dishFile',dishFile);
+
             if(dishFile) {
+                console.log('adicionou dish file');
                 formData.append('file', dishFile)
             }
 
@@ -77,19 +80,23 @@ export function Edit() {
             formData.append('ingredients', JSON.stringify(ingredients))
             formData.append('price', parseFloat(price).toFixed(2))
             formData.append('description', description)
-           
-            console.log(formData);
 
-            await api.put(`/dishes/${params.id}`, formData)
+
+
+            await api.post(`/dishes/${params.id}`, formData)
+            // await api.post(`/dishes/${params.id}`, {
+            //     name,
+            //     category: selectedCategory.value,
+            //     ingredients: JSON.stringify(ingredients),
+            //     price: parseFloat(price).toFixed(2),
+            //     description
+            // })
+
             alert('Prato atualizado com sucesso!')
             navigate('/')
 
         } catch(error) {
-            if(error.response) {
-                alert(error.response.data.message)
-            } else {
-                alert("Não foi possível criar prato")
-            }
+            alert("Não foi possível criar prato")
         }
 
     }
