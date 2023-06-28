@@ -23,26 +23,26 @@ export function Header() {
     navigate('/new-dish')
   }
 
-  const mock = [
-    {
-      id: 1,
-      name: 'Salada Ravanello',
-      price: 49.97,
-      image: 'src/assets/ravanello.png'
-    },
-    {
-      id: 2,
-      name: 'Spaghetti Gambe',
-      price: 79.97,
-      image: 'src/assets/gambe.png'
-    },
-    {
-      id: 3,
-      name: 'Prugna Pie',
-      price: 79.97,
-      image: 'src/assets/prune.png'
-    },
-  ]
+  // const mock = [
+  //   {
+  //     id: 1,
+  //     name: 'Salada Ravanello',
+  //     price: 49.97,
+  //     image: 'src/assets/ravanello.png'
+  //   },
+  //   {
+  //     id: 2,
+  //     name: 'Spaghetti Gambe',
+  //     price: 79.97,
+  //     image: 'src/assets/gambe.png'
+  //   },
+  //   {
+  //     id: 3,
+  //     name: 'Prugna Pie',
+  //     price: 79.97,
+  //     image: 'src/assets/prune.png'
+  //   },
+  // ]
 
   function handleClickMenu() {
     toggleMenu();
@@ -68,7 +68,7 @@ export function Header() {
             placeholder="Busque por pratos ou ingredientes"
           />
 
-          <div id="menu-search-results">
+          {/* <div id="menu-search-results">
             {
               mock && mock.map(item => {
                 const urlPath = item.name.toLowerCase().split(" ").join("-")
@@ -90,7 +90,7 @@ export function Header() {
             }
 
             
-          </div>
+          </div> */}
 
           <div className='menu-option'>
             <button 

@@ -37,12 +37,13 @@ export function Edit() {
     }
 
     async function handleUpdate(e) {
-        console.log('OI');
         e.preventDefault();
 
-        if(!dishFile) {
-            return alert('Insira do arquivo de imagem');
-        }
+        console.log(name);
+        console.log(selectedCategory);
+        console.log(price);
+        console.log(description);
+        console.log(ingredients);
 
         if(!name) {
             return alert('Digite o nome do prato')
@@ -67,7 +68,10 @@ export function Edit() {
         try {
             const formData = new FormData();
             
-            formData.append('file', dishFile)
+            if(dishFile) {
+                formData.append('file', dishFile)
+            }
+
             formData.append('name', name)
             formData.append('category', selectedCategory.value)
             formData.append('ingredients', JSON.stringify(ingredients))
@@ -76,8 +80,8 @@ export function Edit() {
            
             console.log(formData);
 
-            await api.post('/dishes', formData)
-            alert('Prato criado com sucesso!')
+            await api.put(`/dishes/${params.id}`, formData)
+            alert('Prato atualizado com sucesso!')
             navigate('/')
 
         } catch(error) {

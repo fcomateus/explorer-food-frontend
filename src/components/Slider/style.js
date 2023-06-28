@@ -151,12 +151,16 @@ export const Container = styled.div`
             display: inline;
         }
 
+        .dish-description-admin {
+            font-size: 18px;
+        }
+
         .dish-price-costumer {
             font-size: 32px;
         }
 
         .dish-price-admin {
-            font-size: 28px;
+            font-size: 24px;
         }
 
         .card-controls {
