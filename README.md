@@ -8,3 +8,6 @@ Food Explorer uses React + Vite and other libs, like styled-components, framer m
 
 It's the final project of Explorer program on Rocketseat
 
+## Running the project
+- npm install
+- npm run dev
