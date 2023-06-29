@@ -119,7 +119,7 @@ export function NewDish() {
         <>
             <Header/>
             <Container>
-                <button id='go-back' onClick={e => navigate(-1)}>
+                <button id='go-back' onClick={e => navigate('/')}>
                     &lt; voltar
                 </button>
 

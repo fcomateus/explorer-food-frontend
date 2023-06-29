@@ -39,12 +39,6 @@ export function Edit() {
     async function handleUpdate(e) {
         e.preventDefault();
 
-        console.log(name);
-        console.log(selectedCategory);
-        console.log(price);
-        console.log(description);
-        console.log(ingredients);
-
         if(!name) {
             return alert('Digite o nome do prato')
         }
@@ -68,10 +62,7 @@ export function Edit() {
         try {
             const formData = new FormData();
 
-            console.log('dishFile',dishFile);
-
             if(dishFile) {
-                console.log('adicionou dish file');
                 formData.append('file', dishFile)
             }
 
@@ -84,13 +75,6 @@ export function Edit() {
 
 
             await api.post(`/dishes/${params.id}`, formData)
-            // await api.post(`/dishes/${params.id}`, {
-            //     name,
-            //     category: selectedCategory.value,
-            //     ingredients: JSON.stringify(ingredients),
-            //     price: parseFloat(price).toFixed(2),
-            //     description
-            // })
 
             alert('Prato atualizado com sucesso!')
             navigate('/')
@@ -139,7 +123,6 @@ export function Edit() {
 
         async function fetchDishDetails() {
             const response = await api.get(`/dishes/${params.id}`)
-            // console.log('dish',response.data);
             const data = response.data
             setDish(data);
             setName(data.name)
@@ -163,7 +146,7 @@ export function Edit() {
         <>
             <Header/>
             <Container>
-                <button id='go-back' onClick={e => navigate(-1)}>
+                <button id='go-back' onClick={e => navigate('/')}>
                     &lt; voltar
                 </button>
 

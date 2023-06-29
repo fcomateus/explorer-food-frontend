@@ -3,6 +3,9 @@ import { SIZES } from "../../utils/sizes";
 
 export const Container = styled.footer`
     & {
+        /* position: fixed;
+        bottom: 0; */
+        width: 100%;
         height: 80px;
         background-color: ${({ theme }) => theme.COLORS.HEADER};
         display: flex;

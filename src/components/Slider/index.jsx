@@ -61,7 +61,7 @@ export function Slider({items}) {
                                 <FiHeart/>
                             </button>
 
-                            <img src={dish.image}/>
+                            <img src={dish.image} alt='Foto do prato'/>
                             <div className='description-costumer'>
                                 <Link to={`/details/${dish.id}`} className='dish-name'>{dish.name} &gt;</Link>
                                 <p className='dish-description-costumer'>{dish.description}</p>
@@ -100,7 +100,7 @@ export function Slider({items}) {
                             <Link to={`/edit/${dish.id}`} className='edit'>
                                 <BiEditAlt/>
                             </Link>
-                            <img src={dish.image}/>
+                            <img src={dish.image} alt='Foto do prato'/>
                             <div className='description-admin'>
                                 <Link to={`/details/${dish.id}`} className='dish-name'>{dish.name} &gt;</Link>
                                 <p className='dish-description-admin'>{dish.description}</p>
@@ -108,7 +108,6 @@ export function Slider({items}) {
                             </div>
                         </motion.div>
                     ))
-                    
                     
                     
                     
