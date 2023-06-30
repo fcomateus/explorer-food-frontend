@@ -73,13 +73,16 @@ export function Slider({items}) {
                                 <div className='wrapper-buttons-quantity'>
                                     <button 
                                         className='card-controls-buttons-costumer'
+                                            
+                                    >
+                                        <AiOutlineMinus/>
+                                    </button>
+                                    {dish.quantity}
+                                    <button 
+                                        className='card-controls-buttons-costumer'
                                         onClick={() => handleAdd(dish)}    
                                     >
                                         <AiOutlinePlus/>
-                                    </button>
-                                    {dish.quantity}
-                                    <button className='card-controls-buttons-costumer'>
-                                        <AiOutlineMinus/>
                                     </button>
                                 </div>
 

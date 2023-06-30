@@ -14,6 +14,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased; 
     font-family: 'Poppins', sans-serif;
     overflow-y: scroll;
+    height: 100vh;
   }
 
   h1, h2, h3, h4 {

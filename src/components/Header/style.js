@@ -229,7 +229,7 @@ export const Container = styled.header`
 
   @media(min-width: ${SIZES.desktop}) {
     & {
-      padding: 0 300px;
+      padding: 0 200px;
     }
     .search-header-bar-costumer,
     .search-header-bar-admin {

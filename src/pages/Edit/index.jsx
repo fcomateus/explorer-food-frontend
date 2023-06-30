@@ -173,14 +173,20 @@ export function Edit() {
                     </div>
                     
                     <div className="input-wrapper">
-                        <label htmlFor="category">Categoria</label>
-                        <SelectInput 
-                            options={categories} 
-                            value={selectedCategory}
-                            id="category"
-                            isSearchable={true}
-                            onChange={handleSelectCategory}
-                        />
+
+                        {
+                            selectedCategory && 
+                            <>
+                                <label htmlFor="category">Categoria</label>
+                                <SelectInput 
+                                options={categories} 
+                                    value={selectedCategory}
+                                    id="category"
+                                    isSearchable={true}
+                                    onChange={handleSelectCategory}
+                                />
+                            </>
+                        }
                     </div>
 
                     <div className="input-wrapper">
