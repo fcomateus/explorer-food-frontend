@@ -3,15 +3,12 @@ import { SIZES } from '../../utils/sizes'
 
 export const Container = styled.div`
 
-    & {
-        width: 100%;
-        max-width: 600px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: start;
-
-    }
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: start;
 
     .description-costumer {
         display: flex;

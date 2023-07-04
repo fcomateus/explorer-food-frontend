@@ -48,6 +48,7 @@ export function Slider({items}) {
 
     return (
         <Container>
+
             <motion.div ref={carousel} className="carousel" whileTap={{ cursor: "grabbing"}}>
                 <motion.div 
                     className="inner"
@@ -118,8 +119,6 @@ export function Slider({items}) {
 
                 </motion.div>
             </motion.div>
-
-
 
         </Container>
 

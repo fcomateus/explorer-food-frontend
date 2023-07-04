@@ -89,23 +89,38 @@ export function Home() {
 
         <section className='food-exhibition'>
           <h2 className='section-title'>Refeições</h2>
-          <Slider
-            items={meals}
-          />
+          {
+            meals.length > 0 ?
+            <Slider
+              items={meals}
+            /> 
+            : <></>
+
+          }
         </section>
 
         <section className='food-exhibition'>
           <h2 className='section-title'>Sobremesas</h2>
-          <Slider
-            items={deserts}
-          />
+          {
+            deserts.length > 0?
+            <Slider
+              items={deserts}
+            /> 
+            : <></>
+          
+          }
         </section>
 
         <section className='food-exhibition'>
           <h2 className='section-title'>Bebidas</h2>
-          <Slider
-            items={drinks}
-          />
+          {
+            drinks.length > 0?
+            <Slider
+              items={drinks}
+            /> 
+            : <></>
+          
+          }
         </section>
 
       </main>
