@@ -65,13 +65,6 @@ export const Container = styled.div`
 
         }
 
-        #footer {
-            position: fixed;
-            bottom: 0;
-
-            border: 1px solid red;
-        }
-
         .input-wrapper {
             margin-top: 0;
             width: 100%;
