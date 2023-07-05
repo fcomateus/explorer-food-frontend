@@ -17,6 +17,10 @@ export default createGlobalStyle`
     height: 100vh;
   }
 
+  #root {
+    height: 100%;
+  }
+
   h1, h2, h3, h4 {
     font-weight: 500;
   }

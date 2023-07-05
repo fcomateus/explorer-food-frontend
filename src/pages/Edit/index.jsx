@@ -154,7 +154,7 @@ export function Edit() {
 
                 <form onSubmit={ e => e.preventDefault()}>
 
-                    <div className="input-wrapper">
+                    <div id="wrapper-input-file" className="input-wrapper">
                         <label htmlFor="dish-image">Imagem do prato</label>
                         <InputFile
                             isFile={dishFile} 
@@ -163,7 +163,7 @@ export function Edit() {
                         />
                     </div>
 
-                    <div className="input-wrapper">
+                    <div id="wrapper-input-name" className="input-wrapper">
                         <label htmlFor="name">Nome</label>
                         <InputText
                             placeholder="Ex: Salada Ceasar"
@@ -172,7 +172,7 @@ export function Edit() {
                         />
                     </div>
                     
-                    <div className="input-wrapper">
+                    <div id="wrapper-input-category" className="input-wrapper">
 
                         {
                             selectedCategory && 
@@ -189,7 +189,7 @@ export function Edit() {
                         }
                     </div>
 
-                    <div className="input-wrapper">
+                    <div id="wrapper-input-ingredients" className="input-wrapper">
                         {
                             !_.isEmpty(ingredients) &&
                             <>
@@ -204,7 +204,7 @@ export function Edit() {
                         }
                     </div>
 
-                    <div className="input-wrapper">
+                    <div id="wrapper-input-price" className="input-wrapper">
                         <label htmlFor="price">Preço</label>
                         <InputText
                             type='text'
@@ -214,7 +214,7 @@ export function Edit() {
                         />
                     </div>
 
-                    <div className="input-wrapper">
+                    <div id="wrapper-input-description" className="input-wrapper">
                         <label htmlFor="description">Descrição</label>
                         <TextArea
                             defaultValue={description}
@@ -237,7 +237,9 @@ export function Edit() {
                     />
                 </div>
             </Container>
-            <Footer/>
+
+            <Footer id="footer"/>
+
         </>
     )
 }
