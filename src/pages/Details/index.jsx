@@ -1,7 +1,6 @@
 import { Container } from "./style";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
-import { Button } from '../../components/Button'
 
 import { AiOutlinePlus } from 'react-icons/ai'
 import { AiOutlineMinus } from 'react-icons/ai'
@@ -10,6 +9,7 @@ import { useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import { useAuth } from "../../hooks/auth";
 import { api } from "../../services/api";
+import { _ } from 'lodash'
 
 
 export function Details() {
@@ -44,7 +44,10 @@ export function Details() {
                 </Link>
 
                 <div id="img-wrapper">
-                    <img src={`${api.defaults.baseURL}/files/${dish.image_path}`} alt="Foto do prato" />
+                    {
+                        !_.isEmpty(dish) &&
+                        <img src={`${api.defaults.baseURL}/files/${dish.image_path}`} alt="Foto do prato" />
+                    }
                 </div>
 
                 <div id="description-wrapper">

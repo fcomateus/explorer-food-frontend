@@ -10,6 +10,7 @@ export const Container = styled.div`
     #go-back {
         font-size: 18px;
         margin-bottom: 35px;
+
     } 
 
     #img-wrapper {

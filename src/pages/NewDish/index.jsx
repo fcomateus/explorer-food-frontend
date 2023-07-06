@@ -127,7 +127,7 @@ export function NewDish() {
 
                 <form onSubmit={handleSubmit}>
 
-                    <div className="input-wrapper">
+                    <div id="wrapper-input-file" className="input-wrapper">
                         <label htmlFor="dish-image">Imagem do prato</label>
                         <InputFile
                             isFile={dishFile} 
@@ -136,7 +136,7 @@ export function NewDish() {
                         />
                     </div>
 
-                    <div className="input-wrapper">
+                    <div id="wrapper-input-name" className="input-wrapper">
                         <label htmlFor="name">Nome</label>
                         <InputText
                             placeholder="Ex: Salada Ceasar"
@@ -144,7 +144,7 @@ export function NewDish() {
                         />
                     </div>
                     
-                    <div className="input-wrapper">
+                    <div id="wrapper-input-category" className="input-wrapper">
                         <label htmlFor="category">Categoria</label>
                         <SelectInput 
                             options={categories} 
@@ -154,7 +154,7 @@ export function NewDish() {
                         />
                     </div>
 
-                    <div className="input-wrapper">
+                    <div id="wrapper-input-ingredients" className="input-wrapper">
                         <label htmlFor="ingredients">Ingredientes</label>
                         <SelectInputMulti
                             getter={getOptions}
@@ -162,7 +162,7 @@ export function NewDish() {
                         />
                     </div>
 
-                    <div className="input-wrapper">
+                    <div id="wrapper-input-price" className="input-wrapper">
                         <label htmlFor="price">Preço</label>
                         <InputText
                             type='text'
@@ -171,7 +171,7 @@ export function NewDish() {
                         />
                     </div>
 
-                    <div className="input-wrapper">
+                    <div id="wrapper-input-description" className="input-wrapper">
                         <label htmlFor="description">Descrição</label>
                         <TextArea
                             onChange={e => setDescription(e.target.value.trim())}
@@ -187,7 +187,14 @@ export function NewDish() {
 
                 </form>
             </Container>
-            <Footer/>
+            
+            <div style={{
+                position:'fixed',
+                bottom: 0,
+                width: '100%'
+            }}>
+                <Footer/>
+            </div>
         </>
     )
 }
