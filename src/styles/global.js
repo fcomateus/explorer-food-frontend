@@ -9,17 +9,18 @@ export default createGlobalStyle`
     color: ${({ theme }) => theme.COLORS.WHITE};
   }
 
+  html, body, #root {
+    height: 100%;
+  }
+
   body {
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_BODY};
     -webkit-font-smoothing: antialiased; 
     font-family: 'Poppins', sans-serif;
     overflow-y: scroll;
-    height: 100vh;
   }
 
-  #root {
-    height: 100%;
-  }
+  
 
   h1, h2, h3, h4 {
     font-weight: 500;

@@ -116,9 +116,11 @@ export function NewDish() {
     }, [])
 
     return (
-        <>
+        <Container>
             <Header/>
-            <Container>
+
+            <main>
+
                 <button id='go-back' onClick={e => navigate('/')}>
                     &lt; voltar
                 </button>
@@ -186,15 +188,15 @@ export function NewDish() {
                     </div>
 
                 </form>
-            </Container>
-            
-            <div style={{
-                position:'fixed',
-                bottom: 0,
-                width: '100%'
-            }}>
+            </main>
+
+
+            <div id="footer-wrapper">
                 <Footer/>
             </div>
-        </>
+
+        </Container>
+            
+
     )
 }

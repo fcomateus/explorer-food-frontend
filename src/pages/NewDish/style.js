@@ -2,9 +2,17 @@ import styled from "styled-components";
 import { SIZES } from "../../utils/sizes";
 
 export const Container = styled.div`
-    margin: 10px auto;
-    padding: 0 32px;
-    width: 320px;
+    width: 100%;
+
+    main {
+        width: 320px;
+        margin: 10px auto;
+        padding: 0 32px;
+        border: 1px solid red;
+
+
+    }
+
 
     #go-back {
         font-size: 18px;
@@ -17,9 +25,9 @@ export const Container = styled.div`
         font-weight: normal;
     }
 
-    form {
+    /* form {
         margin: 24px 0;
-    }
+    } */
 
     #wrapper-input-description {
         height: 120px;
@@ -39,10 +47,16 @@ export const Container = styled.div`
     }
 
     @media(min-width: ${SIZES.laptop}) {
+
+        #footer-wrapper {
+            position: fixed !important;
+            bottom: 0 !important;
+
+        }
+
         & {
             width: 100%;
             max-width: 1120px;
-
             display: flex;
             flex-direction: column;
         }
@@ -93,6 +107,8 @@ export const Container = styled.div`
             width: 300px;
             align-self: flex-end;
         }
+
+        
         
     }
 
