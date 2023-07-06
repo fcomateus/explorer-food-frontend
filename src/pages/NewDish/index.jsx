@@ -126,7 +126,7 @@ export function NewDish() {
                 </button>
 
                 <h3>Novo prato</h3>
-                <form onSubmit={handleSubmit}>
+                <form>
 
 
                     <div id="wrapper-input-file" className="input-wrapper">
@@ -187,6 +187,7 @@ export function NewDish() {
                     <Button
                         color='#750310'
                         text='Criar novo prato'
+                        onClick={handleSubmit}
                     />
                 </div>
 

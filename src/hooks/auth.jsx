@@ -13,7 +13,7 @@ function AuthProvider({ children }) {
             localStorage.setItem("@foodexplorer:user", JSON.stringify(user))
             localStorage.setItem("@foodexplorer:token", token)
 
-            api.defaults.headers.common['Authorization'] = `Bearear ${token}`
+            api.defaults.headers.common['Authorization'] = `Bearer ${token}`
             setData({ user, token })
 
 

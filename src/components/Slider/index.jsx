@@ -36,10 +36,7 @@ export function Slider({items}) {
         updatedDish.quantity = quantity
         
         updatedDishes[index] = updatedDish
-        console.log(dishes);
-        console.log(updatedDishes);
         setDishes(updatedDishes);
-        console.log(dishes);
     }
 
     useEffect(() => {

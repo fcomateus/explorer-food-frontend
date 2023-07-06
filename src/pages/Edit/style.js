@@ -2,23 +2,28 @@ import styled from "styled-components";
 import { SIZES } from "../../utils/sizes";
 
 export const Container = styled.div`
-    margin: 10px auto;
-    padding: 0 32px;
-    width: 320px;
-
+    width: 100%;
 
     #go-back {
         font-size: 18px;
         margin-bottom: 35px;
-        align-self: flex-start;
     }
 
     h3 {
         font-weight: normal;
     }
 
+    main {
+        min-width: 320px;
+        max-width: 80%;
+        margin: 10px auto;
+        padding: 0 32px;
+    }
+
     form {
-        margin: 24px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .input-wrapper {
@@ -34,9 +39,10 @@ export const Container = styled.div`
     }
 
     .buttons-wrapper {
-        margin-block: 20px;
         display: flex;
-        gap: 12px;
+        margin: 20px auto;
+        width: 260px;
+        gap: 10px;
     }
 
     label {
@@ -45,15 +51,25 @@ export const Container = styled.div`
     }
 
     @media(min-width: ${SIZES.laptop}) {
+        #go-back {
+            align-self: flex-start;
+        }
+
         & {
             width: 100%;
-            max-width: 1120px;
-
             display: flex;
             flex-direction: column;
         }
+
+        main {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+
+        }
         
         form {
+            margin-top: 32px;
             display: grid;
             grid-template-areas: 
             "fileInput nameInput categoryInput"
@@ -96,8 +112,16 @@ export const Container = styled.div`
         }
 
         .buttons-wrapper {
+            margin: 20px 0 0;
             width: 300px;
             align-self: flex-end;
+            gap: 20px;
+        }
+
+        #footer-wrapper {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
         }
         
     }

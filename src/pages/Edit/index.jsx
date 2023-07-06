@@ -143,9 +143,9 @@ export function Edit() {
     }, [])
 
     return (
-        <>
+        <Container>
             <Header/>
-            <Container>
+            <main>
                 <button id='go-back' onClick={e => navigate('/')}>
                     &lt; voltar
                 </button>
@@ -175,11 +175,11 @@ export function Edit() {
                     <div id="wrapper-input-category" className="input-wrapper">
 
                         {
-                            selectedCategory && 
+                            !_.isEmpty(selectedCategory) &&
                             <>
                                 <label htmlFor="category">Categoria</label>
                                 <SelectInput 
-                                options={categories} 
+                                    options={categories} 
                                     value={selectedCategory}
                                     id="category"
                                     isSearchable={true}
@@ -236,16 +236,14 @@ export function Edit() {
                         onClick={handleDelete}
                     />
                 </div>
-            </Container>
-            
-            <div style={{
-                position:'fixed',
-                bottom: 0,
-                width: '100%'
-            }}>
-                <Footer/>
-            </div>
 
-        </>
+
+            </main>
+                <div id='footer-wrapper'>
+                    <Footer/>
+                </div>
+            
+
+        </Container>
     )
 }
