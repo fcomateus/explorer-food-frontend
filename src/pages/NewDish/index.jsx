@@ -126,8 +126,8 @@ export function NewDish() {
                 </button>
 
                 <h3>Novo prato</h3>
-
                 <form onSubmit={handleSubmit}>
+
 
                     <div id="wrapper-input-file" className="input-wrapper">
                         <label htmlFor="dish-image">Imagem do prato</label>
@@ -180,20 +180,23 @@ export function NewDish() {
                         />
                     </div>
 
-                    <div className="input-wrapper">
-                        <Button
-                            color='#750310'
-                            text='Criar novo prato'
-                        />
-                    </div>
 
                 </form>
+
+                <div className="button-wrapper">
+                    <Button
+                        color='#750310'
+                        text='Criar novo prato'
+                    />
+                </div>
+
             </main>
 
 
             <div id="footer-wrapper">
                 <Footer/>
-            </div>
+            </div> 
+
 
         </Container>
             
