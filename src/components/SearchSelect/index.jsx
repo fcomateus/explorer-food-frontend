@@ -7,6 +7,33 @@ export function SearchSelect() {
     const [searchTerm, setSearchTerm] = useState('');
     const [options, setOptions] = useState([]);
 
+    const select = {
+        control: (provided, state) => ({
+            ...provided,
+            background: '#0D1D25',
+            border: 'none',
+            color: '#E1E1E6'
+        }),
+        option: (provided, state) => ({
+            ...provided,
+            backgroundColor: state.isFocused ? '#E1E1E6' : state.isHovered ? '' : '#0D1D25',
+            // color: '#E1E1E6'
+            color: state.isFocused ? '#00070A' : '#E1E1E6',
+            fontSize: '14px'
+        }),
+        menu: (provided, state) => ({
+            ...provided,
+            background: '#0D1D25'
+        }),
+        placeholder: (provided, state) => ({
+            ...provided,
+        }),
+        input: (provided, state) => ({
+            ...provided,
+            color: '#E1E1E6'
+        })
+    }
+
     function handleInputChange(term) {
         setSearchTerm(term)
     }
@@ -34,6 +61,8 @@ export function SearchSelect() {
     return (
         <Container>
             <Select
+                styles={select}
+                placeholder={`Busque por pratos`}
                 options={options}
                 onInputChange={handleInputChange}
                 onChange={handleChange}

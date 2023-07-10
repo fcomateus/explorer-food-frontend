@@ -6,6 +6,7 @@ import { InputText } from '../InputText'
 import { Link, useNavigate } from 'react-router-dom'
 import { useMenu } from '../../hooks/menu'
 import { useAuth } from '../../hooks/auth'
+import { SearchSelect } from '../SearchSelect'
 
 export function Header() {
   const { signOut, user } = useAuth();
@@ -183,9 +184,13 @@ export function Header() {
         </div>
 
         <div className="search-header-bar-admin">
-          <InputText
+          {/* <InputText
             type="text"
-            placeholder="Busque por pratos ou ingredientes"
+            placeholder="Busque por pratos"
+          /> */}
+
+          <SearchSelect
+            
           />
         </div>
 
