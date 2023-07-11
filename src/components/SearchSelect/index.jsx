@@ -1,17 +1,13 @@
 import { Container } from "./style";
-import { useState, useEffect } from "react";
 import { api } from '../../services/api'
-import Select, { components } from 'react-select'
-import { useNavigate } from "react-router-dom";
+import AsyncSelect from 'react-select/async'
+import { Link } from "react-router-dom";
 
 export function SearchSelect() {
-    const [searchTerm, setSearchTerm] = useState('');
-    const [options, setOptions] = useState([]);
 
-    const navigate = useNavigate()
 
     const CustomOption = ({ innerProps, label, data }) => (
-        <div {...innerProps} style={{
+        <Link to={`/details/${data.value}`} {...innerProps} style={{
             display: 'flex',
             alignItems: 'center',
             padding: '5px 10px',
@@ -19,7 +15,7 @@ export function SearchSelect() {
         }}>
             <img 
                 src={`${api.defaults.baseURL}/files/${data.image_path}`}
-                alt={data.name} 
+                alt={`Imagem do prato ${data.label}`} 
                  style={{
                     height: '80px',
                     width: '80px'
@@ -29,9 +25,9 @@ export function SearchSelect() {
                 style={{
                     fontSize: '20px'
                 }}
-            >{data.name}</span>
-        </div>
-      );
+            >{data.label}</span>
+        </Link>
+    );
 
     const select = {
         control: (provided, state) => ({
@@ -43,7 +39,6 @@ export function SearchSelect() {
         option: (provided, state) => ({
             ...provided,
             backgroundColor: state.isFocused ? '#E1E1E6' : state.isHovered ? '' : '#0D1D25',
-            // color: '#E1E1E6'
             color: state.isFocused ? '#00070A' : '#E1E1E6',
             fontSize: '14px'
         }),
@@ -60,45 +55,40 @@ export function SearchSelect() {
         })
     }
 
-    function handleInputChange(term) {
-        setSearchTerm(term)
-    }
+    async function loadOptions(inputValue) {
+        try {
+            const response = await api.get(`/search?term=${inputValue}`)
+            const data = await response.data
 
-    function handleChange(selectedOption) {
-        console.log('selectedOption',selectedOption);
-        navigate(`/details/${selectedOption.id}`)
-    }
-
-
-    useEffect(() => {
-        async function fetchOptions() {
-            try {
-
-                if(searchTerm != undefined && searchTerm.trim() != '') {
-                    const response = await api.get(`/search?term=${searchTerm}`)
-                    console.log(response.data);
-                    setOptions(response.data)
+            const options = data.map(item => {
+                return {
+                    value: item.id,
+                    label: item.name,
+                    image_path: item.image_path
                 }
+            })
 
-            } catch (error) {
-                console.log('error',error);
-            }
+            return options
+
+        } catch (error) {
+            alert('Erro ao carregar as opções', error)
+            return []
         }
- 
-        fetchOptions()
-    }, [searchTerm])
+
+
+    }
+
+    
 
 
     return (
         <Container>
-            <Select
+            <AsyncSelect
                 styles={select}
-                placeholder={`Busque por pratos`}
-                options={options}
-                onInputChange={handleInputChange}
-                onChange={handleChange}
-                isSearchable
+                loadOptions={loadOptions}
+                placeholder={`Busque por pratos...`}
                 components={{ Option: CustomOption }}
+                isClearable
             />
         </Container>
     )

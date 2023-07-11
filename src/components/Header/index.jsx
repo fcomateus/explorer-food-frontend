@@ -2,7 +2,6 @@ import { Container } from './style'
 import { AiOutlineMenu } from 'react-icons/ai'
 import { RxExit } from 'react-icons/rx'
 import { RxCross1 } from 'react-icons/rx'
-import { InputText } from '../InputText'
 import { Link, useNavigate } from 'react-router-dom'
 import { useMenu } from '../../hooks/menu'
 import { useAuth } from '../../hooks/auth'
@@ -43,34 +42,8 @@ export function Header() {
         </header>
 
         <div className="menu-body">
-          <InputText
-            id="menu-search"
-            placeholder="Busque por pratos ou ingredientes"
-          />
 
-          {/* <div id="menu-search-results">
-            {
-              mock && mock.map(item => {
-                const urlPath = item.name.toLowerCase().split(" ").join("-")
-
-                return (
-                  <Link to={urlPath} className='exibition-dish-menu' key={String(item.id)}>
-                    <div className='menu-dish-image'>
-                      <img src={item.image} alt="Imagem do prato"/>
-                    </div>
-
-                    <div>
-                      <h4>{item.name}</h4>
-                      <p>{item.price}</p>
-                    </div>
-                  </Link>
-                )
-              })
-
-            }
-
-            
-          </div> */}
+          <SearchSelect/>
 
           <div className='menu-option'>
             <button 
@@ -120,10 +93,8 @@ export function Header() {
         </div>
 
         <div className="search-header-bar-costumer">
-          <InputText
-            type="text"
-            placeholder="Busque por pratos ou ingredientes"
-          />
+
+          <SearchSelect/>
         </div>
 
         <div id='bill-icon'>
@@ -184,14 +155,7 @@ export function Header() {
         </div>
 
         <div className="search-header-bar-admin">
-          {/* <InputText
-            type="text"
-            placeholder="Busque por pratos"
-          /> */}
-
-          <SearchSelect
-            
-          />
+          <SearchSelect/>
         </div>
 
         <button onClick={handleNewDish} id='new-dish'>
